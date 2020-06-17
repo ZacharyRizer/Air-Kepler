@@ -12,7 +12,7 @@ import Splash from './components/Splash';
 function App() {
   return (
     <Grommet theme={theme} full>
-      <Box margin={{ horizontal: 'xlarge' }}>
+      <Box fill="vertical" margin={{ horizontal: 'xlarge' }}>
         {/* Don't forget to include the history module */}
         <Router history={history}>
           <header>
