@@ -1,11 +1,17 @@
-import React, { useState } from 'react';
-import { Box, RadioButton, Select, Text } from 'grommet';
+import React, { useContext } from 'react';
+import { Context } from '../Context';
+import { Box, Select, Text } from 'grommet';
 import DateInput from './DateInput';
 
 const SearchForm = () => {
-  const [arrive, setArrive] = useState('');
-  const [depart, setDepart] = useState('');
-  const [numPassengers, setNumPassengers] = useState(1);
+  const {
+    arrive,
+    setArrive,
+    depart,
+    setDepart,
+    numPass,
+    setNumPass,
+  } = useContext(Context);
   return (
     <Box justify="evenly" direction="row">
       <Box direction="column">
@@ -67,9 +73,9 @@ const SearchForm = () => {
           }}>
           Depart Date:
         </Text>
-        <DateInput />
+        <DateInput id="departDate" />
       </Box>
-      <Box direction="column">
+      {/* <Box direction="column">
         <Text
           margin={{
             horizontal: 'small',
@@ -78,8 +84,8 @@ const SearchForm = () => {
           }}>
           Return Date:
         </Text>
-        <DateInput />
-      </Box>
+        <DateInput id="returnDate" />
+      </Box> */}
       <Box direction="column">
         <Text
           margin={{
@@ -93,8 +99,8 @@ const SearchForm = () => {
           margin={{ bottom: 'medium' }}
           options={[1, 2, 3, 4]}
           style={{ width: '35px' }}
-          value={numPassengers}
-          onChange={({ option }) => setNumPassengers(option)}
+          value={numPass}
+          onChange={({ option }) => setNumPass(option)}
         />
       </Box>
     </Box>

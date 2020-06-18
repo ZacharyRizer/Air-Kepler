@@ -1,4 +1,5 @@
-import React, { Component } from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
+import { Context } from '../Context';
 import { Box, Calendar, Drop, Keyboard, TextInput } from 'grommet';
 
 // Yes, these are for the odd but conventional U.S. way of representing dates.
@@ -10,33 +11,36 @@ const MONTH_DAY_REGEXP = new RegExp(
 );
 const MONTH_DAY_YEAR_REGEXP = new RegExp('^(\\d{1,2})/(\\d{1,2})/(\\d{4})$');
 
-class DateInput extends Component {
-  state = { text: '' };
+const DateInput = ({ id }) => {
+  const { date, setDate } = useContext(Context);
+  const [text, setText] = useState('');
+  const [active, setActive] = useState('');
+  const [focusInput, setFocusInput] = useState(false);
+  const dropTarget = useRef();
 
-  componentDidUpdate() {
-    if (this.focusInput) {
-      const element = document.getElementById('date-input');
+  useEffect(() => {
+    if (focusInput) {
+      const element = document.getElementById(id);
       element.focus();
     }
-  }
+  }, [focusInput, id]);
 
-  onFocus = () => {
-    if (!this.focusInput) {
-      this.setState({ active: true });
+  const onFocus = () => {
+    if (!focusInput) {
+      setActive(true);
     } else {
-      this.focusInput = false;
+      setFocusInput(false);
     }
   };
 
-  onInput = (event) => {
-    const { text } = this.state;
+  const onInput = (event) => {
     let {
       target: { value },
     } = event;
-    let date;
+    let newDate = date;
     const match = value.match(MONTH_DAY_YEAR_REGEXP);
     if (match) {
-      date = new Date(
+      newDate = new Date(
         match[3],
         parseInt(match[1], 10) - 1,
         match[2]
@@ -50,48 +54,47 @@ class DateInput extends Component {
         value = `${value}/`;
       }
     }
-    this.setState({ text: value, date, active: true });
+    setText(value);
+    setDate(newDate.toISOString());
+    setActive(true);
   };
 
-  onSelect = (isoDate) => {
-    const date = new Date(isoDate);
-    const text = `${
-      date.getMonth() + 1
-    }/${date.getDate()}/${date.getFullYear()}`;
-    this.setState({ date, text, active: false });
-    this.focusInput = true;
+  const onSelect = (isoDate) => {
+    const newDate = new Date(isoDate);
+    const newText = `${
+      newDate.getMonth() + 1
+    }/${newDate.getDate()}/${newDate.getFullYear()}`;
+
+    setText(newText);
+    setDate(newDate.toISOString());
+    setActive(false);
+    setFocusInput(true);
   };
 
-  render() {
-    const { active, date, text } = this.state;
-    return (
-      <Box>
-        <Keyboard onDown={() => this.setState({ active: true })}>
-          <TextInput
-            ref={(ref) => {
-              this.ref = ref;
-            }}
-            id="date-input"
-            placeholder="MM/DD/YYYY"
-            value={text}
-            onInput={this.onInput}
-            onFocus={this.onFocus}
-            onBlur={this.onBlur}
-          />
-        </Keyboard>
-        {active ? (
-          <Drop
-            target={this.ref}
-            align={{ top: 'bottom', left: 'left' }}
-            onClose={() => this.setState({ active: false })}>
-            <Box pad="small">
-              <Calendar size="small" date={date} onSelect={this.onSelect} />
-            </Box>
-          </Drop>
-        ) : null}
-      </Box>
-    );
-  }
-}
+  return (
+    <Box>
+      <Keyboard onDown={() => setActive(true)}>
+        <TextInput
+          ref={dropTarget}
+          id={id}
+          placeholder="MM/DD/YYYY"
+          value={text}
+          onInput={onInput}
+          onFocus={onFocus}
+        />
+      </Keyboard>
+      {active ? (
+        <Drop
+          target={dropTarget.current}
+          align={{ top: 'bottom', left: 'left' }}
+          onClose={() => setActive(false)}>
+          <Box pad="small">
+            <Calendar size="small" date={date} onSelect={onSelect} />
+          </Box>
+        </Drop>
+      ) : null}
+    </Box>
+  );
+};
 
 export default DateInput;

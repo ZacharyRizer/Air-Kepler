@@ -1,14 +1,16 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { Context } from '../Context';
 import { Box, Button, Image, Layer, Text } from 'grommet';
 import { MapLocation, Schedule } from 'grommet-icons';
 import SearchForm from './SearchForm';
 
 const Splash = () => {
+  const { arrive, depart, date, numPass } = useContext(Context);
   const [show, setShow] = useState();
 
   const handleSearch = () => {
-    console.log('Search');
+    console.log([depart, arrive, date, numPass]);
   };
 
   return (
@@ -31,7 +33,7 @@ const Splash = () => {
         <Box
           justify="evenly"
           direction="column"
-          margin={{ horizontal: '15rem', top: '10rem' }}
+          margin={{ horizontal: '10rem', top: '10rem' }}
           background={'background-back'}>
           <SearchForm />
           <Box direction="row" id="subBar" justify="between">
