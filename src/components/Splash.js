@@ -78,6 +78,23 @@ const Splash = () => {
             </Box>
           </Box>
         </Box>
+        <Box
+          justify="evenly"
+          direction="column"
+          round="xsmall"
+          margin={{ horizontal: '20rem', top: '1rem' }}
+          background="brand">
+          <Text
+            margin="small"
+            alignSelf="center"
+            textAlign="center"
+            size="medium"
+            style={{ color: 'white' }}>
+            Where is the return date you ask? Due to the length of our voyages,
+            and the uncertainties of space travel, there is no way for SpaceWest
+            to guarantee the return flight times. All trips are one way.
+          </Text>
+        </Box>
       </div>
     </>
   );
