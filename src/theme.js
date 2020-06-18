@@ -5,6 +5,7 @@ const theme = {
   defaultMode: 'light',
   global: {
     colors: {
+      accent: '#061178',
       brand: {
         dark: '#7700cc',
         light: '#1d39c4',
@@ -482,6 +483,24 @@ const theme = {
       size: '34px',
       height: '40px',
       maxWidth: '816px',
+    },
+  },
+  tab: {
+    active: {
+      color: 'brand',
+    },
+    border: {
+      color: 'text',
+      active: {
+        color: 'brand',
+      },
+      hover: {
+        color: '#FF4040',
+      },
+    },
+    color: 'text',
+    hover: {
+      color: '#FF4040',
     },
   },
   text: {

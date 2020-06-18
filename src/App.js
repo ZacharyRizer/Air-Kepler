@@ -5,6 +5,8 @@ import { Box, Grommet } from 'grommet';
 import theme from './theme';
 import history from './utils/history';
 
+import Checkout from './components/Checkout';
+import Flights from './components/Flights';
 import NavBar from './components/NavBar';
 import PrivateRoute from './components/PrivateRoute';
 import Profile from './components/Profile';
@@ -22,6 +24,8 @@ function App() {
             </header>
             <Switch>
               <Route path="/" exact component={Splash} />
+              <Route path="/flights" component={Flights} />
+              <PrivateRoute path="/checkout" component={Checkout} />
               <PrivateRoute path="/profile" component={Profile} />
             </Switch>
           </Router>

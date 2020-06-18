@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { Context } from '../Context';
 import { Box, Button, Image, Layer, Text } from 'grommet';
 import { MapLocation, Schedule } from 'grommet-icons';
@@ -8,9 +8,15 @@ import SearchForm from './SearchForm';
 const Splash = () => {
   const { arrive, depart, date, numPass } = useContext(Context);
   const [show, setShow] = useState();
+  const history = useHistory();
 
   const handleSearch = () => {
-    console.log([depart, arrive, date, numPass]);
+    if (!arrive || !depart) {
+      return;
+    } else {
+      console.log([arrive, depart, date, numPass]);
+      history.push('/flights');
+    }
   };
 
   return (

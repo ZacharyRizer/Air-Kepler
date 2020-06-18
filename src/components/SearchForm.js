@@ -37,6 +37,7 @@ const SearchForm = () => {
           ]}
           value={depart}
           onChange={({ option }) => setDepart(option)}
+          required
         />
       </Box>
       <Box direction="column">
@@ -75,17 +76,6 @@ const SearchForm = () => {
         </Text>
         <DateInput id="departDate" />
       </Box>
-      {/* <Box direction="column">
-        <Text
-          margin={{
-            horizontal: 'small',
-            bottom: 'xsmall',
-            top: 'medium',
-          }}>
-          Return Date:
-        </Text>
-        <DateInput id="returnDate" />
-      </Box> */}
       <Box direction="column">
         <Text
           margin={{
