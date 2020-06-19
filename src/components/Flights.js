@@ -28,11 +28,11 @@ const Flights = () => {
         border={{ size: 'xsmall', side: 'bottom' }}>
         <Box direction="row" align="center">
           <Heading margin="small" level={2} color={'text-strong'}>
-            Depart: Depart
+            Depart: {depart}
           </Heading>
           <FormNextLink size="large" />
           <Heading margin="small" level={2} color={'text-strong'}>
-            Arrived
+            {arrive}
           </Heading>
         </Box>
         <Box
