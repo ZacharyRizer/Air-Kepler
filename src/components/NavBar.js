@@ -17,7 +17,7 @@ const NavBar = () => {
         <Button>
           <Box direction="row" align="center" justify="evenly">
             <Heading level="3" margin="small" color="brand">
-              SpaceWest
+              AirKepler
             </Heading>
             <Box height="xxsmall" width="xxsmall" margin="small">
               <Image fit="cover" src="/images/orbiting.svg" />

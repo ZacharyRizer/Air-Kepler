@@ -97,7 +97,7 @@ const Splash = () => {
             size="medium"
             style={{ color: 'white' }}>
             Where is the return date you ask? Due to the length of our voyages,
-            and the uncertainties of space travel, there is no way for SpaceWest
+            and the uncertainties of space travel, there is no way for AirKepler
             to guarantee the return flight times. All trips are one way.
           </Text>
         </Box>

@@ -1,5 +1,5 @@
 const theme = {
-  name: 'SpaceWest',
+  name: 'Kepler',
   rounding: 2,
   spacing: 24,
   defaultMode: 'light',
