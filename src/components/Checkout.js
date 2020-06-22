@@ -4,6 +4,8 @@ import { Context } from '../Context';
 import { Box, Button, Heading, Text } from 'grommet';
 import { FormNextLink } from 'grommet-icons';
 import moment from 'moment';
+import { useAuth0 } from '../react-auth0-spa';
+import { apiBaseUrl } from '../config';
 
 const Checkout = () => {
   const {
@@ -17,9 +19,29 @@ const Checkout = () => {
     flightClass,
   } = useContext(Context);
 
+  const { getTokenSilently, user } = useAuth0();
   const history = useHistory();
 
-  const bookFlight = () => {
+  const bookFlight = async () => {
+    const token = await getTokenSilently();
+    const res = await fetch(`${apiBaseUrl}/flights`, {
+      method: 'POST',
+      body: JSON.stringify({
+        customer_id: user.userId,
+        depart_date: date,
+        depart_loc: depart,
+        arrive_loc: arrive,
+        num_pass: numPass,
+        ticket_price: price[flightClass],
+        ticket_class: flightClass,
+        distance: distance,
+        travel_time: time[flightClass],
+      }),
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`,
+      },
+    });
     history.push('/profile');
   };
 

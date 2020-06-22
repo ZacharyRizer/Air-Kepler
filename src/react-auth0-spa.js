@@ -53,7 +53,6 @@ export const Auth0Provider = ({
         });
         //fetch path on user on the backend
         const response = await res.json();
-        console.log(response);
 
         setUser({ ...user, userId: response.userId });
       }

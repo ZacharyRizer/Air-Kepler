@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Context } from '../Context';
 import {
   Box,
@@ -13,8 +13,6 @@ import {
   TableCell,
   TableRow,
   TableBody,
-  Tabs,
-  Tab,
 } from 'grommet';
 import { MapLocation, Schedule, FormNextLink } from 'grommet-icons';
 import { useAuth0 } from '../react-auth0-spa';
