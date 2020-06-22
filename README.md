@@ -1,4 +1,4 @@
-# Space-West
+# AirKepler
 
 #### Created By
 
@@ -6,7 +6,7 @@
 
 ### Project Description
 
-> Space-West is a travel booking app that is designed to find you the cheapest flights available from planet to planet. Enter your departure location, destination, and planned departure date to find the travel time, distance, and price of your travel. If you're travel plans are flexible, don't forget to check the low fair calculator to see the shortest and most affordable travel dates!
+> AirKepler is a travel booking app that is designed to find you the cheapest flights available from planet to planet. Enter your departure location, destination, and planned departure date to find the travel time, distance, and price of your travel. If you're travel plans are flexible, don't forget to check the low fair calculator to see the shortest and most affordable travel dates!
 
 #### _Feature List:_
 
