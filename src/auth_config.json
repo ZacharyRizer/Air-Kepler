@@ -1,4 +1,5 @@
 {
   "domain": "space-west.us.auth0.com",
-  "clientId": "uiD9mSLWMKouWRgaVeSrIN5TbkoZdhnq"
+  "clientId": "uiD9mSLWMKouWRgaVeSrIN5TbkoZdhnq",
+  "audience": "https://space-west.us.auth0.com/api/v2/"
 }

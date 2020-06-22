@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { Context } from '../Context';
 import { Box, Button, Heading, Text } from 'grommet';
 import { FormNextLink } from 'grommet-icons';
@@ -16,6 +16,12 @@ const Checkout = () => {
     price,
     flightClass,
   } = useContext(Context);
+
+  const history = useHistory();
+
+  const bookFlight = () => {
+    history.push('/profile');
+  };
 
   return (
     <>
@@ -144,9 +150,12 @@ const Checkout = () => {
         margin={{ horizontal: '15rem' }}
         background="accent">
         <Box margin="medium">
-          <Link to="/profile">
-            <Button primary color={'status-warning'} label="Confirm Booking" />
-          </Link>
+          <Button
+            primary
+            color={'status-warning'}
+            label="Confirm Booking"
+            onClick={bookFlight}
+          />
         </Box>
       </Box>
     </>

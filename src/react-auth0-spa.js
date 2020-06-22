@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import createAuth0Client from '@auth0/auth0-spa-js';
+import { apiBaseUrl } from './config';
 
 const DEFAULT_REDIRECT_CALLBACK = () =>
   window.history.replaceState({}, document.title, window.location.pathname);
@@ -36,7 +37,25 @@ export const Auth0Provider = ({
 
       if (isAuthenticated) {
         const user = await auth0FromHook.getUser();
-        setUser(user);
+        let token = await auth0FromHook.getTokenSilently();
+        const res = await fetch(`${apiBaseUrl}/users`, {
+          method: 'POST',
+          body: JSON.stringify({
+            name: user.nickname,
+            email: user.email,
+            auth0_id: user.sub,
+            picture: user.picture,
+          }),
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${token}`,
+          },
+        });
+        //fetch path on user on the backend
+        const response = await res.json();
+        console.log(response);
+
+        setUser({ ...user, userId: response.userId });
       }
 
       setLoading(false);
