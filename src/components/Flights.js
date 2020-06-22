@@ -1,14 +1,22 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Context } from '../Context';
-import { Box, Button, Heading, Image, Layer, Text, Tabs, Tab } from 'grommet';
-import { MapLocation, Schedule, FormNextLink } from 'grommet-icons';
+import { Box, Button, Heading, Tabs, Tab } from 'grommet';
+import { FormNextLink } from 'grommet-icons';
 
 import FlightInfo from './FlightInfo';
 
 const Flights = () => {
-  const { depart, arrive, date, numPass } = useContext(Context);
-  const [flightClass, setFlightClass] = useState('Economy');
+  const {
+    depart,
+    arrive,
+    distance,
+    time,
+    flightClass,
+    setFlightClass,
+    price,
+  } = useContext(Context);
+  const [tab, setTab] = useState(0);
 
   const setClass = (tab) => {
     if (tab === 0) {
@@ -17,6 +25,14 @@ const Flights = () => {
       setFlightClass('Premium');
     }
   };
+
+  useEffect(() => {
+    if (flightClass === 'Economy') {
+      setTab(0);
+    } else {
+      setTab(1);
+    }
+  }, [flightClass]);
 
   return (
     <>
@@ -27,11 +43,14 @@ const Flights = () => {
         margin={{ horizontal: '15rem' }}
         border={{ size: 'xsmall', side: 'bottom' }}>
         <Box direction="row" align="center">
-          <Heading margin="small" level={2} color={'text-strong'}>
-            Depart: {depart}
+          <Heading margin="xsmall" level={2} color={'text-strong'}>
+            Depart:
           </Heading>
-          <FormNextLink size="large" />
-          <Heading margin="small" level={2} color={'text-strong'}>
+          <Heading margin="xsmall" level={2} color={'text-strong'}>
+            {depart}
+          </Heading>
+          <FormNextLink size="medium" />
+          <Heading margin="xsmall" level={2} color={'text-strong'}>
             {arrive}
           </Heading>
         </Box>
@@ -48,24 +67,25 @@ const Flights = () => {
       <Tabs
         alignControls="center"
         margin={{ horizontal: '17rem', vertical: '1rem' }}
-        onActive={(tab) => setClass(tab)}>
+        onActive={(tab) => setClass(tab)}
+        activeIndex={tab}>
         <Tab title="Economy Class">
           <FlightInfo
             flight={{
-              speed: 'slow',
-              travelTime: 'long',
-              distance: 'long',
-              price: 'low',
+              speed: '25,000 km/h',
+              travelTime: `${time.Economy} Days`,
+              distance: `${distance} Mil. km`,
+              price: `$${price.Economy}`,
             }}
           />
         </Tab>
         <Tab title="Premium Class">
           <FlightInfo
             flight={{
-              speed: 'fast',
-              travelTime: 'show',
-              distance: 'show',
-              price: 'high',
+              speed: '50,000 km/h',
+              travelTime: `${time.Premium} Days`,
+              distance: `${distance} Mil. km`,
+              price: `$${price.Premium}`,
             }}
           />
         </Tab>

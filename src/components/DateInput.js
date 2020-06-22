@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useRef, useState } from 'react';
 import { Context } from '../Context';
 import { Box, Calendar, Drop, Keyboard, TextInput } from 'grommet';
+import moment from 'moment';
 
 // Yes, these are for the odd but conventional U.S. way of representing dates.
 const MONTHS = ['[2-9]', '0[1-9]', '1[0-2]'];
@@ -13,7 +14,9 @@ const MONTH_DAY_YEAR_REGEXP = new RegExp('^(\\d{1,2})/(\\d{1,2})/(\\d{4})$');
 
 const DateInput = ({ id }) => {
   const { date, setDate } = useContext(Context);
-  const [text, setText] = useState('');
+  const [text, setText] = useState(
+    moment(date.split('T')[0]).format('MM/DD/YYYY')
+  );
   const [active, setActive] = useState('');
   const [focusInput, setFocusInput] = useState(false);
   const dropTarget = useRef();

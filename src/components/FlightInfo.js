@@ -1,10 +1,11 @@
-import React, { useContext, useState } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import React, { useContext } from 'react';
+import { Link } from 'react-router-dom';
 import { Context } from '../Context';
-import { Box, Button, Heading, Image, Layer, Text, Tabs, Tab } from 'grommet';
-import { MapLocation, Schedule, FormNextLink } from 'grommet-icons';
+import { Box, Button, Heading } from 'grommet';
+import moment from 'moment';
 
 const FlightInfo = ({ flight }) => {
+  const { date } = useContext(Context);
   return (
     <Box direction="column" margin={{ vertical: '1rem' }}>
       <Box
@@ -61,9 +62,12 @@ const FlightInfo = ({ flight }) => {
       </Box>
       <Box
         direction="row"
-        justify="end"
+        justify="between"
         align="center"
         margin={{ vertical: 'medium' }}>
+        <Heading margin="small" level={5} color="brand">
+          Departing on {moment(date.split('T')[0]).format('MMMM Do YYYY')}
+        </Heading>
         <Box elevation="medium">
           <Link to="/checkout">
             <Button primary color={'status-warning'} label="Book Voyage" />

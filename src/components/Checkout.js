@@ -1,32 +1,21 @@
-import React, { useContext, useEffect, useState } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import React, { useContext } from 'react';
+import { Link } from 'react-router-dom';
 import { Context } from '../Context';
-import {
-  Box,
-  Button,
-  Heading,
-  Table,
-  TableBody,
-  TableCell,
-  TableHeader,
-  TableRow,
-  Text,
-} from 'grommet';
-import { MapLocation, Schedule, FormNextLink } from 'grommet-icons';
-
-import FlightInfo from './FlightInfo';
+import { Box, Button, Heading, Text } from 'grommet';
+import { FormNextLink } from 'grommet-icons';
+import moment from 'moment';
 
 const Checkout = () => {
-  const { depart, arrive, date, numPass } = useContext(Context);
-  const [flightClass, setFlightClass] = useState('Economy');
-
-  const setClass = (tab) => {
-    if (tab === 0) {
-      setFlightClass('Economy');
-    } else {
-      setFlightClass('Premium');
-    }
-  };
+  const {
+    depart,
+    arrive,
+    date,
+    numPass,
+    time,
+    distance,
+    price,
+    flightClass,
+  } = useContext(Context);
 
   return (
     <>
@@ -62,7 +51,7 @@ const Checkout = () => {
               Departure Date:
             </Text>
             <Text margin="small" size="medium">
-              Some date
+              {moment(date.split('T')[0]).format('MMMM Do YYYY')}
             </Text>
           </Box>
           <Box direction="row" justify="between" align="center" margin="xsmall">
@@ -71,11 +60,11 @@ const Checkout = () => {
             </Text>
             <Box direction="row" justify="between" align="center">
               <Text margin="small" size="medium">
-                Start
+                {depart}
               </Text>
               <FormNextLink size="medium" />
               <Text margin="small" size="medium">
-                End
+                {arrive}
               </Text>
             </Box>
           </Box>
@@ -84,7 +73,7 @@ const Checkout = () => {
               Total Travel Time:
             </Text>
             <Text margin="small" size="medium">
-              A long time
+              {time[flightClass]} Days
             </Text>
           </Box>
           <Box direction="row" justify="between" align="center" margin="xsmall">
@@ -92,7 +81,7 @@ const Checkout = () => {
               Voyage Distance:
             </Text>
             <Text margin="small" size="medium">
-              A very long distance
+              {distance} Mil. km
             </Text>
           </Box>
         </Box>
@@ -106,12 +95,22 @@ const Checkout = () => {
             justify="between"
             alignContent="center"
             margin="small"
+            border={{ size: 'small', side: 'bottom', color: 'text' }}>
+            <Text margin="small" size="medium" color={'text-strong'}>
+              {flightClass} Class
+            </Text>
+          </Box>
+          <Box
+            direction="row"
+            justify="between"
+            alignContent="center"
+            margin="small"
             border={{ size: 'xsmall', side: 'bottom' }}>
             <Text margin="small" size="small">
               Price per Passenger:
             </Text>
             <Text margin="small" size="medium" color={'text-strong'}>
-              Price
+              ${price[flightClass]}
             </Text>
           </Box>
           <Box
@@ -124,7 +123,7 @@ const Checkout = () => {
               Passenger(s):
             </Text>
             <Text margin="small" size="medium" color={'text-strong'}>
-              x2
+              {numPass}
             </Text>
           </Box>
           <Box direction="row" justify="between" align="center" margin="small">
@@ -132,7 +131,7 @@ const Checkout = () => {
               Voyage Total:
             </Text>
             <Text margin="small" size="medium" color={'text-strong'}>
-              Total
+              ${price[flightClass] * numPass}
             </Text>
           </Box>
         </Box>

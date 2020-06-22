@@ -4,18 +4,46 @@ import { Context } from '../Context';
 import { Box, Button, Image, Layer, Text } from 'grommet';
 import { MapLocation, Schedule } from 'grommet-icons';
 import SearchForm from './SearchForm';
+import { apiBaseUrl } from '../config';
 
 const Splash = () => {
-  const { arrive, depart, date, numPass } = useContext(Context);
+  const { arrive, depart, date, setDistance, setTime, setPrice } = useContext(
+    Context
+  );
   const [show, setShow] = useState();
   const history = useHistory();
 
-  const handleSearch = () => {
+  const handleSearch = async () => {
     if (!arrive || !depart) {
       return;
     } else {
-      console.log([arrive, depart, date, numPass]);
-      history.push('/flights');
+      const formatDate = date.split('T')[0];
+      const formatDepart = depart.toLowerCase();
+      const formatArrive = arrive.toLowerCase();
+      const body = {
+        depart: formatDepart,
+        arrive: formatArrive,
+        date: formatDate,
+      };
+
+      const res = await fetch(`${apiBaseUrl}/calculate-trip`, {
+        method: 'POST',
+        body: JSON.stringify(body),
+        headers: { 'Content-Type': 'application/json' },
+      });
+
+      if (res) {
+        const data = await res.json();
+        const distance = (data.distance / 1000000).toFixed(2);
+        const timeEco = Math.floor(data.distance / 25000 / 24);
+        const timePrem = Math.floor(data.distance / 50000 / 24);
+        const priceEco = Math.floor((data.distance / 100) * 0.005);
+        const pricePrem = Math.floor((data.distance / 100) * 0.008);
+        setDistance(distance);
+        setTime({ Economy: timeEco, Premium: timePrem });
+        setPrice({ Economy: priceEco, Premium: pricePrem });
+        history.push('/flights');
+      }
     }
   };
 
