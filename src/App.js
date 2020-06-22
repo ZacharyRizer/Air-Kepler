@@ -26,7 +26,10 @@ function App() {
               <Route path="/" exact component={Splash} />
               <Route path="/flights" component={Flights} />
               <PrivateRoute path="/checkout" component={Checkout} />
-              <PrivateRoute path="/profile" component={Profile} />
+              <PrivateRoute
+                path="/profile/:customerId"
+                render={(props) => <Profile {...props} />}
+              />
             </Switch>
           </Router>
         </Box>

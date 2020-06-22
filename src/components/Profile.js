@@ -16,9 +16,30 @@ import {
 } from 'grommet';
 import { MapLocation, Schedule, FormNextLink } from 'grommet-icons';
 import { useAuth0 } from '../react-auth0-spa';
+import { apiBaseUrl } from '../config';
+import moment from 'moment';
 
-const Profile = () => {
-  const { loading, user } = useAuth0();
+const Profile = (props) => {
+  const { loading, getTokenSilently, user } = useAuth0();
+  const [flights, setFlights] = useState([]);
+  const id = props.match.params.customerId;
+
+  useEffect(() => {
+    if (!user) return;
+
+    const fetchFlights = async () => {
+      const token = await getTokenSilently();
+      const res = await fetch(`${apiBaseUrl}/flights/${id}`, {
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      const flights = await res.json();
+      setFlights(flights);
+    };
+    fetchFlights();
+  }, [user]);
 
   if (loading || !user) {
     return <div>Loading...</div>;
@@ -65,14 +86,22 @@ const Profile = () => {
               </TableRow>
             </TableHeader>
             <TableBody>
-              <TableRow>
-                <TableCell scope="col">
-                  <strong>1</strong>
-                </TableCell>
-                <TableCell scope="col">Earth > Mars</TableCell>
-                <TableCell scope="col">2020-12-12</TableCell>
-                <TableCell scope="col">$100,000</TableCell>
-              </TableRow>
+              {flights.map((flight) => (
+                <TableRow>
+                  <TableCell scope="col">
+                    <strong>{flight.id}</strong>
+                  </TableCell>
+                  <TableCell scope="col">
+                    {flight.depart_loc} > {flight.arrive_loc}
+                  </TableCell>
+                  <TableCell scope="col">
+                    {moment(flight.depart_date.split('T')[0]).format(
+                      'MMMM Do YYYY'
+                    )}
+                  </TableCell>
+                  <TableCell scope="col">${flight.ticket_price}</TableCell>
+                </TableRow>
+              ))}
             </TableBody>
           </Table>
         </Box>

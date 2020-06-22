@@ -1,10 +1,17 @@
-import React from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import { useAuth0 } from '../react-auth0-spa';
 import { Link } from 'react-router-dom';
 import { Box, Button, Heading, Image } from 'grommet';
 
 const NavBar = () => {
-  const { isAuthenticated, loginWithRedirect, logout } = useAuth0();
+  const { isAuthenticated, loginWithRedirect, logout, user } = useAuth0();
+  const [userId, setUserId] = useState();
+
+  useEffect(() => {
+    if (user) {
+      setUserId(user.userId);
+    }
+  }, [user]);
 
   return (
     <Box
@@ -34,7 +41,7 @@ const NavBar = () => {
       )}
       {isAuthenticated && (
         <Box direction="row">
-          <Link to="/profile" style={{ textDecoration: 'none' }}>
+          <Link to={`/profile/${userId}`} style={{ textDecoration: 'none' }}>
             <Button label="Profile" margin="5px" color="brand" />
           </Link>
           <Button

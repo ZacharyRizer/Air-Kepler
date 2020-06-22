@@ -42,7 +42,7 @@ const Checkout = () => {
         Authorization: `Bearer ${token}`,
       },
     });
-    history.push('/profile');
+    history.push(`/profile/${user.userId}`);
   };
 
   return (
