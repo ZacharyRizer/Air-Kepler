@@ -93,16 +93,16 @@ const Flights = () => {
       <Link
         to="/low-fares"
         style={{ textDecoration: 'none' }}
-        className="low_fares">
+        className="button_hover">
         <Box
-          className="low_fares"
+          className="button_hover"
           direction="row"
           justify="center"
           align="center"
           margin={{ horizontal: '15rem' }}
           background="accent"
           round="xsmall">
-          <Heading textAlign="center" level={3} className="low_fares">
+          <Heading textAlign="center" level={3} className="button_hover">
             Are Your Dates Flexible? Search Our Lowest Fares!
           </Heading>
         </Box>

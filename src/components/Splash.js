@@ -74,7 +74,7 @@ const Splash = () => {
           <SearchForm />
           <Box direction="row" id="subBar" justify="between">
             <Box direction="row">
-              <Button onClick={() => setShow(true)}>
+              <Button focusIndicator={false} onClick={() => setShow(true)}>
                 <Box
                   direction="row"
                   margin={{
@@ -83,10 +83,12 @@ const Splash = () => {
                     bottom: 'medium',
                   }}>
                   <MapLocation color="brand" />
-                  <Text margin={{ left: 'small' }}>Where we fly</Text>
+                  <Text className="button_hover" margin={{ left: 'small' }}>
+                    Where we fly
+                  </Text>
                 </Box>
               </Button>
-              <Button>
+              <Button focusIndicator={false}>
                 <Link to="/low-fares" style={{ textDecoration: 'none' }}>
                   <Box
                     direction="row"
@@ -96,7 +98,10 @@ const Splash = () => {
                       bottom: 'medium',
                     }}>
                     <Schedule color="brand" />
-                    <Text margin={{ left: 'small' }} color="text">
+                    <Text
+                      className="button_hover"
+                      margin={{ left: 'small' }}
+                      color="text">
                       Lowest Fare Dates
                     </Text>
                   </Box>

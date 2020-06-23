@@ -5,6 +5,7 @@ import {
   Button,
   Heading,
   Image,
+  Layer,
   Text,
   Table,
   TableHeader,
@@ -138,10 +139,15 @@ const Profile = (props) => {
         </Box>
       </Box>
       {selectedFlight && (
-        <PastFlightInfo
-          flight={selectedFlight}
-          setSelectedFlight={setSelectedFlight}
-        />
+        <Layer
+          onEsc={() => setSelectedFlight()}
+          onClick={() => setSelectedFlight()}
+          onClickOutside={() => setSelectedFlight()}>
+          <PastFlightInfo
+            flight={selectedFlight}
+            setSelectedFlight={setSelectedFlight}
+          />
+        </Layer>
       )}
     </>
   );

@@ -9,7 +9,7 @@ const PastFlightInfo = ({ flight, setSelectedFlight }) => {
         direction="row"
         justify="between"
         align="center"
-        margin={{ horizontal: '15rem' }}
+        margin={{ horizontal: '10rem', top: '5rem' }}
         border={{ size: 'small', side: 'bottom', color: 'accent' }}>
         <Box direction="row" align="center">
           <Heading margin="small" level={4} color={'text'}>
@@ -33,7 +33,7 @@ const PastFlightInfo = ({ flight, setSelectedFlight }) => {
         direction="row"
         justify="between"
         align="center"
-        margin={{ horizontal: '15rem' }}>
+        margin={{ horizontal: '10rem', bottom: '5rem' }}>
         <Box direction="column" fill="horizontal" margin="medium">
           <Box direction="row" justify="between" align="center" margin="xsmall">
             <Text margin="small" size="medium">

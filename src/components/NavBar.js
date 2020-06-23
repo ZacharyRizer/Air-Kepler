@@ -21,7 +21,7 @@ const NavBar = () => {
       border={{ color: 'brand', size: 'xsmall', side: 'bottom' }}
       pad="small">
       <Link to="/">
-        <Button>
+        <Button focusIndicator={false}>
           <Box direction="row" align="center" justify="evenly">
             <Heading level="3" margin="small" color="brand">
               AirKepler
