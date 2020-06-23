@@ -7,6 +7,7 @@ import history from './utils/history';
 
 import Checkout from './components/Checkout';
 import Flights from './components/Flights';
+import LowFares from './components/LowFares';
 import NavBar from './components/NavBar';
 import PrivateRoute from './components/PrivateRoute';
 import Profile from './components/Profile';
@@ -25,6 +26,7 @@ function App() {
             <Switch>
               <Route path="/" exact component={Splash} />
               <Route path="/flights" component={Flights} />
+              <Route path="/low-fares" component={LowFares} />
               <PrivateRoute path="/checkout" component={Checkout} />
               <PrivateRoute
                 path="/profile/:customerId"

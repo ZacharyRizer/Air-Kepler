@@ -102,7 +102,7 @@ const Splash = () => {
                       className="button_hover"
                       margin={{ left: 'small' }}
                       color="text">
-                      Lowest Fare Dates
+                      Browse Lowest Fares
                     </Text>
                   </Box>
                 </Link>
@@ -116,7 +116,10 @@ const Splash = () => {
                     top: 'large',
                     bottom: 'medium',
                   }}>
-                  <Text alignSelf="center" color={'status-critical'}>
+                  <Text
+                    alignSelf="center"
+                    weight="bold"
+                    color={'status-critical'}>
                     Please Select a Departure and Arrival Location
                   </Text>
                 </Box>

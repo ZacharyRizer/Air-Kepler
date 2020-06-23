@@ -69,7 +69,7 @@ const Flights = () => {
         margin={{ horizontal: '17rem', vertical: '1rem' }}
         onActive={(tab) => setClass(tab)}
         activeIndex={tab}>
-        <Tab title="Economy Class">
+        <Tab title="Economy Class" focusIndicator={false}>
           <FlightInfo
             flight={{
               speed: '25,000 km/h',
@@ -79,7 +79,7 @@ const Flights = () => {
             }}
           />
         </Tab>
-        <Tab title="Premium Class">
+        <Tab title="Premium Class" focusIndicator={false}>
           <FlightInfo
             flight={{
               speed: '50,000 km/h',
@@ -103,7 +103,7 @@ const Flights = () => {
           background="accent"
           round="xsmall">
           <Heading textAlign="center" level={3} className="button_hover">
-            Are Your Dates Flexible? Search Our Lowest Fares!
+            Are Your Dates Flexible? Browse Our Lowest Fares!
           </Heading>
         </Box>
       </Link>

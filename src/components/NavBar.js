@@ -23,7 +23,11 @@ const NavBar = () => {
       <Link to="/">
         <Button focusIndicator={false}>
           <Box direction="row" align="center" justify="evenly">
-            <Heading level="3" margin="small" color="brand">
+            <Heading
+              className="button_hover"
+              level="3"
+              margin="small"
+              color="brand">
               AirKepler
             </Heading>
             <Box height="xxsmall" width="xxsmall" margin="small">
