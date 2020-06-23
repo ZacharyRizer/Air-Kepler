@@ -114,13 +114,23 @@ const Profile = (props) => {
               </TableBody>
             </Table>
           </Box>
-          <Box id="user_info" background={'background-contrast'} basis="1/4">
-            <Box height="small" width="small" alignSelf="center">
-              <Image fit="cover" src={user.picture} />
+          <Box
+            id="user_info"
+            background={'background-contrast'}
+            basis="1/4"
+            border={{ size: 'xsmall', color: 'accent' }}
+            justify="space-between">
+            <Box width="100%" alignSelf="center">
+              <Image fit="cover" fill="horizontal" src={user.picture} />
             </Box>
-            <Text textAlign="center" margin="small">
-              {user.name}
-            </Text>
+            <Box
+              border={{ size: 'xsmall', side: 'bottom' }}
+              margin="small"
+              alignContent="center">
+              <Text textAlign="center" margin="small">
+                {user.name}
+              </Text>
+            </Box>
             <Text textAlign="center" margin="small">
               {user.email}
             </Text>
