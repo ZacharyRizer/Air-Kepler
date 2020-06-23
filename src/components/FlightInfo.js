@@ -1,11 +1,38 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { Context } from '../Context';
 import { Box, Button, Heading } from 'grommet';
 import moment from 'moment';
 
 const FlightInfo = ({ flight }) => {
-  const { date } = useContext(Context);
+  const {
+    date,
+    depart,
+    arrive,
+    distance,
+    time,
+    numPass,
+    price,
+    flightClass,
+  } = useContext(Context);
+  const history = useHistory();
+
+  const bookFlight = () => {
+    localStorage.setItem(
+      'flightInfo',
+      JSON.stringify({
+        date,
+        depart,
+        arrive,
+        distance,
+        time,
+        numPass,
+        price,
+        flightClass,
+      })
+    );
+    history.push('/checkout');
+  };
   return (
     <Box direction="column" margin={{ vertical: '1rem' }}>
       <Box
@@ -69,9 +96,12 @@ const FlightInfo = ({ flight }) => {
           Departing on {moment(date.split('T')[0]).format('MMMM Do YYYY')}
         </Heading>
         <Box elevation="medium">
-          <Link to="/checkout">
-            <Button primary color={'status-warning'} label="Book Voyage" />
-          </Link>
+          <Button
+            primary
+            color={'status-warning'}
+            label="Book Voyage"
+            onClick={bookFlight}
+          />
         </Box>
       </Box>
     </Box>
