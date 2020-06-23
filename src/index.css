@@ -21,4 +21,5 @@ body {
 
 .past_flight:hover {
   background-color: #11111111;
+  cursor: pointer;
 }
