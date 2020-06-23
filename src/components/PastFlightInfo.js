@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { Box, Button, Heading, Text } from 'grommet';
 import { FormNextLink } from 'grommet-icons';
 import moment from 'moment';
@@ -13,7 +12,7 @@ const PastFlightInfo = ({ flight, setSelectedFlight }) => {
         margin={{ horizontal: '15rem' }}
         border={{ size: 'small', side: 'bottom', color: 'accent' }}>
         <Box direction="row" align="center">
-          <Heading margin="small" level={4} color={'text-strong'}>
+          <Heading margin="small" level={4} color={'text'}>
             Flight #{flight.id}
           </Heading>
         </Box>

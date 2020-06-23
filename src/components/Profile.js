@@ -5,7 +5,6 @@ import {
   Button,
   Heading,
   Image,
-  Layer,
   Text,
   Table,
   TableHeader,
@@ -39,7 +38,7 @@ const Profile = (props) => {
       setFlights(flights);
     };
     fetchFlights();
-  }, [user]);
+  }, [user, id, getTokenSilently]);
 
   useEffect(() => {
     console.log(selectedFlight);
@@ -69,7 +68,7 @@ const Profile = (props) => {
           </Box>
         </Box>
         <Box direction="row" justify="between">
-          <Box id="prev_fligts" margin="small" basis="2/3">
+          <Box id="prev_fligts" margin="small" basis="3/4">
             <Box border={{ size: 'small', side: 'bottom', color: 'accent' }}>
               <Heading level={4}>Previously Booked Trips:</Heading>
             </Box>
@@ -86,13 +85,14 @@ const Profile = (props) => {
                     Depart Date
                   </TableCell>
                   <TableCell scope="col" border="bottom">
-                    Price
+                    Total Price
                   </TableCell>
                 </TableRow>
               </TableHeader>
               <TableBody>
                 {flights.map((flight) => (
                   <TableRow
+                    className="past_flight"
                     key={flight.id}
                     onClick={() => setSelectedFlight(flight)}>
                     <TableCell scope="col">
@@ -106,13 +106,15 @@ const Profile = (props) => {
                         'MMMM Do YYYY'
                       )}
                     </TableCell>
-                    <TableCell scope="col">${flight.ticket_price}</TableCell>
+                    <TableCell scope="col">
+                      ${flight.ticket_price * flight.num_pass}
+                    </TableCell>
                   </TableRow>
                 ))}
               </TableBody>
             </Table>
           </Box>
-          <Box id="user_info" background={'background-contrast'} basis="1/3">
+          <Box id="user_info" background={'background-contrast'} basis="1/4">
             <Box height="small" width="small" alignSelf="center">
               <Image fit="cover" src={user.picture} />
             </Box>

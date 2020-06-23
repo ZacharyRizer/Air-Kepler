@@ -90,17 +90,23 @@ const Flights = () => {
           />
         </Tab>
       </Tabs>
-      <Box
-        direction="row"
-        justify="center"
-        align="center"
-        margin={{ horizontal: '15rem' }}
-        background="accent"
-        round="xsmall">
-        <Heading textAlign="center" level={2}>
-          Explore Our Available Options!
-        </Heading>
-      </Box>
+      <Link
+        to="/low-fares"
+        style={{ textDecoration: 'none' }}
+        className="low_fares">
+        <Box
+          className="low_fares"
+          direction="row"
+          justify="center"
+          align="center"
+          margin={{ horizontal: '15rem' }}
+          background="accent"
+          round="xsmall">
+          <Heading textAlign="center" level={3} className="low_fares">
+            Are Your Dates Flexible? Search Our Lowest Fares!
+          </Heading>
+        </Box>
+      </Link>
     </>
   );
 };

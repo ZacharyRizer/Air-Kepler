@@ -11,10 +11,12 @@ const Splash = () => {
     Context
   );
   const [show, setShow] = useState();
+  const [planetError, setPlanetError] = useState(false);
   const history = useHistory();
 
   const handleSearch = async () => {
     if (!arrive || !depart) {
+      setPlanetError(true);
       return;
     } else {
       const formatDate = date.split('T')[0];
@@ -100,6 +102,20 @@ const Splash = () => {
                   </Box>
                 </Link>
               </Button>
+              {planetError ? (
+                <Box
+                  direction="row"
+                  margin={{
+                    left: 'large',
+                    right: 'medium',
+                    top: 'large',
+                    bottom: 'medium',
+                  }}>
+                  <Text alignSelf="center" color={'status-critical'}>
+                    Please Select a Departure and Arrival Location
+                  </Text>
+                </Box>
+              ) : null}
             </Box>
             <Box
               elevation="medium"

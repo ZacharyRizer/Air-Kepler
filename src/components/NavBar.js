@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useAuth0 } from '../react-auth0-spa';
 import { Link } from 'react-router-dom';
 import { Box, Button, Heading, Image } from 'grommet';

@@ -14,3 +14,11 @@ body {
   width: 100%;
   height: 100%;
 }
+
+.low_fares:hover {
+  color: #ff4040;
+}
+
+.past_flight:hover {
+  background-color: #11111111;
+}

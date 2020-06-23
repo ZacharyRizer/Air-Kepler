@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { Context } from '../Context';
 import { Box, Button, Heading } from 'grommet';
 import moment from 'moment';
