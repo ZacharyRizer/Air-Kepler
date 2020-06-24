@@ -23,3 +23,11 @@ body {
   background-color: #11111111;
   cursor: pointer;
 }
+
+.lowest_fare {
+  background-color: #ff000075;
+  cursor: pointer;
+}
+.lowest_fare:hover {
+  background-color: #ff0000c0;
+}

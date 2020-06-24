@@ -111,7 +111,7 @@ const Splash = () => {
                 <Box
                   direction="row"
                   margin={{
-                    left: 'large',
+                    left: 'medium',
                     right: 'medium',
                     top: 'large',
                     bottom: 'medium',

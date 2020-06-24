@@ -4,6 +4,7 @@ import { Context } from '../Context';
 import {
   Box,
   Button,
+  Heading,
   Select,
   Table,
   TableHeader,
@@ -24,8 +25,6 @@ const LowFares = () => {
     setArrive,
     date,
     setDate,
-    flightClass,
-    setFlightClass,
     setDistance,
     setTime,
     setPrice,
@@ -33,11 +32,11 @@ const LowFares = () => {
 
   const [dates, setDates] = useState([]);
   const [distances, setDistances] = useState([]);
+  const [minDistance, setMinDistance] = useState([]);
   const history = useHistory();
 
   const findLowFares = async () => {
     if (!arrive || !depart) {
-      // setPlanetError(true);
       return;
     } else {
       let tempDates = [];
@@ -66,6 +65,18 @@ const LowFares = () => {
       if (res) {
         const data = await res.json();
         setDistances(data.distances);
+        setMinDistance(
+          data.distances.reduce(
+            (min, distance, i) => {
+              if (distance < min[0]) {
+                return [distance, i];
+              } else {
+                return min;
+              }
+            },
+            [Infinity, 0]
+          )
+        );
       }
     }
   };
@@ -93,11 +104,7 @@ const LowFares = () => {
 
   return (
     <>
-      <Box
-        direction="row"
-        justify="evenly"
-        margin={{ horizontal: '15rem' }}
-        border={{ size: 'xsmall', side: 'bottom' }}>
+      <Box direction="row" justify="evenly" margin={{ horizontal: '15rem' }}>
         <Box direction="column">
           <Text
             margin={{
@@ -171,8 +178,21 @@ const LowFares = () => {
       </Box>
       <Box
         margin={{ horizontal: '15rem' }}
-        border={{ size: 'xsmall', side: 'bottom' }}>
-        {!distances.length ? null : (
+        round="xsmall"
+        border={{ size: 'small', side: 'horizontal', color: 'accent' }}>
+        {!distances.length ? (
+          <Box
+            direction="row"
+            justify="center"
+            align="center"
+            margin={{ vertical: 'xlarge', horizontal: 'large' }}
+            background="accent"
+            round="xsmall">
+            <Heading textAlign="center" level={3}>
+              Please Select Departure and Arrival Locations
+            </Heading>
+          </Box>
+        ) : (
           <Table>
             <TableHeader>
               <TableRow>
@@ -191,25 +211,46 @@ const LowFares = () => {
               </TableRow>
             </TableHeader>
             <TableBody>
-              {dates.map((day, i) => (
-                <TableRow
-                  className="past_flight"
-                  key={i}
-                  onClick={() => selectFlight(i)}>
-                  <TableCell scope="col">
-                    {moment(day).format('MMMM YYYY')}
-                  </TableCell>
-                  <TableCell scope="col">
-                    {(distances[i] / 1000000).toFixed(2)} Mil. km
-                  </TableCell>
-                  <TableCell scope="col">
-                    {Math.floor(distances[i] / 25000 / 24)} Days
-                  </TableCell>
-                  <TableCell scope="col">
-                    ${Math.floor((distances[i] / 100) * 0.005)}
-                  </TableCell>
-                </TableRow>
-              ))}
+              {dates.map((day, i) =>
+                minDistance[1] !== i ? (
+                  <TableRow
+                    className="past_flight"
+                    key={i}
+                    onClick={() => selectFlight(i)}>
+                    <TableCell scope="col">
+                      {moment(day).format('MMMM YYYY')}
+                    </TableCell>
+                    <TableCell scope="col">
+                      {(distances[i] / 1000000).toFixed(2)} Mil. km
+                    </TableCell>
+                    <TableCell scope="col">
+                      {Math.floor(distances[i] / 25000 / 24)} Days
+                    </TableCell>
+                    <TableCell scope="col">
+                      ${Math.floor((distances[i] / 100) * 0.005)}
+                    </TableCell>
+                  </TableRow>
+                ) : (
+                  <TableRow
+                    className="past_flight"
+                    key={i}
+                    className="lowest_fare"
+                    onClick={() => selectFlight(i)}>
+                    <TableCell scope="col">
+                      {moment(day).format('MMMM YYYY')}
+                    </TableCell>
+                    <TableCell scope="col">
+                      {(distances[i] / 1000000).toFixed(2)} Mil. km
+                    </TableCell>
+                    <TableCell scope="col">
+                      {Math.floor(distances[i] / 25000 / 24)} Days
+                    </TableCell>
+                    <TableCell scope="col">
+                      ${Math.floor((distances[i] / 100) * 0.005)}
+                    </TableCell>
+                  </TableRow>
+                )
+              )}
             </TableBody>
           </Table>
         )}

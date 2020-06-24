@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { Context } from '../Context';
-import { Box, Button, Heading, Text } from 'grommet';
+import { Box, Button, Heading, Select, Text } from 'grommet';
 import { FormNextLink } from 'grommet-icons';
 import moment from 'moment';
 import { useAuth0 } from '../react-auth0-spa';
@@ -106,8 +106,8 @@ const Checkout = () => {
               margin={{
                 horizontal: 'medium',
               }}>
-              <Link to="/">
-                <Button primary label="Modify Voyage" />
+              <Link to="/flights">
+                <Button primary label="Back to Flight Details" />
               </Link>
             </Box>
           </Box>
@@ -209,9 +209,13 @@ const Checkout = () => {
                 <Text margin="small" size="small">
                   Passenger(s):
                 </Text>
-                <Text margin="small" size="medium" color={'text-strong'}>
-                  {flightInfo.numPass}
-                </Text>
+                <Select
+                  margin={{ bottom: 'small' }}
+                  options={[1, 2, 3, 4]}
+                  style={{ width: '35px' }}
+                  value={numPass}
+                  onChange={({ option }) => setNumPass(option)}
+                />
               </Box>
               <Box
                 direction="row"
