@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { Context } from '../Context';
-import { Box, Button, Image, Layer, Text } from 'grommet';
+import { Box, Button, Image, Layer, ResponsiveContext, Text } from 'grommet';
 import { MapLocation, Schedule } from 'grommet-icons';
 import SearchForm from './SearchForm';
 import { apiBaseUrl } from '../config';
@@ -10,6 +10,7 @@ const Splash = () => {
   const { arrive, depart, date, setDistance, setTime, setPrice } = useContext(
     Context
   );
+  const size = useContext(ResponsiveContext);
   const [show, setShow] = useState();
   const [planetError, setPlanetError] = useState(false);
   const history = useHistory();
@@ -59,72 +60,119 @@ const Splash = () => {
           <Image src="/images/Planets.svg" />
         </Layer>
       )}
-      <Box direction="row" justify="center">
-        <Text margin="small" alignSelf="center" size="large">
-          Ready for the trip of a lifetime? Book your next interplanetary
-          adventure below!
-        </Text>
-      </Box>
-      <div className="splash_div">
-        <Box
-          justify="evenly"
-          direction="column"
-          margin={{ horizontal: '10rem', top: '10rem' }}
-          background={'background-back'}>
-          <SearchForm />
-          <Box direction="row" id="subBar" justify="between">
-            <Box direction="row">
-              <Button focusIndicator={false} onClick={() => setShow(true)}>
+      {size !== 'small' ? (
+        <>
+          <Box direction="row" justify="center">
+            <Text margin="small" alignSelf="center" size="large">
+              Ready for the trip of a lifetime? Book your next interplanetary
+              adventure below!
+            </Text>
+          </Box>
+          <div className="splash_div">
+            <Box
+              justify="evenly"
+              direction="column"
+              margin={{ horizontal: '10rem', top: '10rem' }}
+              background={'background-back'}>
+              <SearchForm />
+              <Box direction="row" id="subBar" justify="between">
+                <Box direction="row">
+                  <Button focusIndicator={false} onClick={() => setShow(true)}>
+                    <Box
+                      direction="row"
+                      margin={{
+                        horizontal: 'large',
+                        top: 'large',
+                        bottom: 'medium',
+                      }}>
+                      <MapLocation color="brand" />
+                      <Text className="button_hover" margin={{ left: 'small' }}>
+                        Where we fly
+                      </Text>
+                    </Box>
+                  </Button>
+                  <Button focusIndicator={false}>
+                    <Link to="/low-fares" style={{ textDecoration: 'none' }}>
+                      <Box
+                        direction="row"
+                        margin={{
+                          horizontal: 'large',
+                          top: 'large',
+                          bottom: 'medium',
+                        }}>
+                        <Schedule color="brand" />
+                        <Text
+                          className="button_hover"
+                          margin={{ left: 'small' }}
+                          color="text">
+                          Browse Lowest Fares
+                        </Text>
+                      </Box>
+                    </Link>
+                  </Button>
+                  {planetError ? (
+                    <Box
+                      direction="row"
+                      margin={{
+                        left: 'medium',
+                        right: 'medium',
+                        top: 'large',
+                        bottom: 'medium',
+                      }}>
+                      <Text
+                        alignSelf="center"
+                        weight="bold"
+                        color={'status-critical'}>
+                        Please Select a Departure and Arrival Location
+                      </Text>
+                    </Box>
+                  ) : null}
+                </Box>
                 <Box
-                  direction="row"
+                  elevation="medium"
                   margin={{
                     horizontal: 'large',
                     top: 'large',
                     bottom: 'medium',
                   }}>
-                  <MapLocation color="brand" />
-                  <Text className="button_hover" margin={{ left: 'small' }}>
-                    Where we fly
-                  </Text>
+                  <Button primary label="Search" onClick={handleSearch} />
                 </Box>
-              </Button>
-              <Button focusIndicator={false}>
-                <Link to="/low-fares" style={{ textDecoration: 'none' }}>
-                  <Box
-                    direction="row"
-                    margin={{
-                      horizontal: 'large',
-                      top: 'large',
-                      bottom: 'medium',
-                    }}>
-                    <Schedule color="brand" />
-                    <Text
-                      className="button_hover"
-                      margin={{ left: 'small' }}
-                      color="text">
-                      Browse Lowest Fares
-                    </Text>
-                  </Box>
-                </Link>
-              </Button>
-              {planetError ? (
-                <Box
-                  direction="row"
-                  margin={{
-                    left: 'medium',
-                    right: 'medium',
-                    top: 'large',
-                    bottom: 'medium',
-                  }}>
-                  <Text
-                    alignSelf="center"
-                    weight="bold"
-                    color={'status-critical'}>
-                    Please Select a Departure and Arrival Location
-                  </Text>
-                </Box>
-              ) : null}
+              </Box>
             </Box>
+            <Box
+              justify="evenly"
+              direction="column"
+              round="xsmall"
+              margin={{ horizontal: '20rem', top: '1rem' }}
+              background="brand">
+              <Text
+                margin="small"
+                alignSelf="center"
+                textAlign="center"
+                size="medium"
+                style={{ color: 'white' }}>
+                Where is the return date you ask? Due to the length of our
+                voyages, and the uncertainties of space travel, there is no way
+                for AirKepler to guarantee the return flight times. All trips
+                are one way.
+              </Text>
+            </Box>
+          </div>
+        </>
+      ) : (
+        <>
+          <Box direction="row" justify="center" background="brand">
+            <Text margin="xsmall" alignSelf="center" size="xsmall">
+              Ready for the trip of a lifetime? Book Now!
+            </Text>
+          </Box>
+          <Box justify="evenly" direction="column" margin="small">
+            <SearchForm />
+            {planetError ? (
+              <Text alignSelf="center" color={'status-critical'}>
+                Please Select Destinations
+              </Text>
+            ) : null}
             <Box
               elevation="medium"
               margin={{
@@ -132,28 +180,11 @@ const Splash = () => {
                 top: 'large',
                 bottom: 'medium',
               }}>
-              <Button primary label="Search" onClick={handleSearch} />
+              <Button primary label="Find A Flight" onClick={handleSearch} />
             </Box>
           </Box>
-        </Box>
-        <Box
-          justify="evenly"
-          direction="column"
-          round="xsmall"
-          margin={{ horizontal: '20rem', top: '1rem' }}
-          background="brand">
-          <Text
-            margin="small"
-            alignSelf="center"
-            textAlign="center"
-            size="medium"
-            style={{ color: 'white' }}>
-            Where is the return date you ask? Due to the length of our voyages,
-            and the uncertainties of space travel, there is no way for AirKepler
-            to guarantee the return flight times. All trips are one way.
-          </Text>
-        </Box>
-      </div>
+        </>
+      )}
     </>
   );
 };
