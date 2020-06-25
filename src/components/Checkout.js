@@ -269,7 +269,7 @@ const Checkout = () => {
                   direction="row"
                   justify="between"
                   align="center"
-                  margin={{ vertical: 'medium' }}>
+                  margin={{ vertical: 'medium', horizontal: 'xsmall' }}>
                   <Text>Departure Date:</Text>
                   <Text>
                     {moment(flightInfo.date.split('T')[0]).format(
@@ -281,7 +281,7 @@ const Checkout = () => {
                   direction="row"
                   justify="between"
                   align="center"
-                  margin={{ vertical: 'medium' }}>
+                  margin={{ vertical: 'medium', horizontal: 'xsmall' }}>
                   <Text>Voyage Endpoints:</Text>
                   <Box direction="row" justify="between" align="center">
                     <Text>{flightInfo.depart}</Text>
@@ -293,7 +293,7 @@ const Checkout = () => {
                   direction="row"
                   justify="between"
                   align="center"
-                  margin={{ vertical: 'medium' }}>
+                  margin={{ vertical: 'medium', horizontal: 'xsmall' }}>
                   <Text>Total Travel Time:</Text>
                   <Text>{flightInfo.time[flightInfo.flightClass]} Days</Text>
                 </Box>
@@ -301,7 +301,7 @@ const Checkout = () => {
                   direction="row"
                   justify="between"
                   align="center"
-                  margin={{ vertical: 'medium' }}>
+                  margin={{ vertical: 'medium', horizontal: 'xsmall' }}>
                   <Text>Voyage Distance:</Text>
                   <Text>{flightInfo.distance} Mil. km</Text>
                 </Box>

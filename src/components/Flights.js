@@ -11,13 +11,10 @@ import {
   Text,
 } from 'grommet';
 import { FormNextLink } from 'grommet-icons';
-import moment from 'moment';
-
 import FlightInfo from './FlightInfo';
 
 const Flights = () => {
   const {
-    date,
     depart,
     arrive,
     distance,

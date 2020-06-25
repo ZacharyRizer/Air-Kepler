@@ -239,9 +239,8 @@ const LowFares = () => {
                       </TableRow>
                     ) : (
                       <TableRow
-                        className="past_flight"
+                        className="past_flight lowest_fare"
                         key={i}
-                        className="lowest_fare"
                         onClick={() => selectFlight(i)}>
                         <TableCell scope="col">
                           {moment(day).format('MMMM YYYY')}
@@ -351,7 +350,6 @@ const LowFares = () => {
                         </TableRow>
                       ) : (
                         <TableRow
-                          className="past_flight"
                           key={i}
                           className="lowest_fare"
                           onClick={() => selectFlight(i)}>
