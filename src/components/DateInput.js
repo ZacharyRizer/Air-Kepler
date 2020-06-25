@@ -58,7 +58,7 @@ const DateInput = ({ id }) => {
       }
     }
     setText(value);
-    setDate(newDate.toISOString());
+    setDate(newDate);
     setActive(true);
   };
 
