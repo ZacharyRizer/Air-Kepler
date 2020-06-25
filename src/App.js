@@ -5,6 +5,7 @@ import history from './utils/history';
 
 import Checkout from './components/Checkout';
 import Flights from './components/Flights';
+import FourOhFour from './components/404';
 import LowFares from './components/LowFares';
 import NavBar from './components/NavBar';
 import PrivateRoute from './components/PrivateRoute';
@@ -32,6 +33,7 @@ function App() {
                 path="/profile/:customerId"
                 render={(props) => <Profile {...props} />}
               />
+              <Route component={FourOhFour} />
             </Switch>
           </Router>
         </Box>
