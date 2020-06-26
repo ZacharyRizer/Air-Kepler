@@ -59,7 +59,7 @@ const Flights = () => {
               <Heading margin="xsmall" level={2} color={'text-strong'}>
                 {depart}
               </Heading>
-              <FormNextLink size="medium" />
+              <FormNextLink size="large" />
               <Heading margin="xsmall" level={2} color={'text-strong'}>
                 {arrive}
               </Heading>
