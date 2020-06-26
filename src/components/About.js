@@ -13,13 +13,13 @@ const About = () => {
             </Heading>
             <Paragraph textAlign="center" color={'background-front'} fill>
               Here at Air Kepler we want to make sure you can plan your voyage
-              to a T! We strive to give you highly accurate approxomations of
-              your travel times and distances. We start with the barycentric
-              (center of mass of the solar system) cartesian coordinates and
-              velocities of your departure and arrival locations on a particular
-              date. These cartesian velocities are then converted to polar
-              versions, and circular orbital kinematics are calculated for the
-              destination planet.
+              to a T! We strive to give you accurate approxomations of your
+              travel times and distances. We start with the barycentric (center
+              of mass of the solar system) cartesian coordinates and velocities
+              of your departure and arrival locations on a particular date.
+              These cartesian velocities are then converted to polar versions,
+              and circular orbital kinematics are calculated for the destination
+              planet.
             </Paragraph>
             <Paragraph textAlign="center" color={'background-front'} fill>
               The departure planet's coordinates are used as the launch location
