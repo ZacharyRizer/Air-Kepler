@@ -93,6 +93,10 @@ const NavBar = () => {
                   label: 'Find Low Fares',
                   onClick: () => history.push('/low-fares'),
                 },
+                {
+                  label: 'Travel Calculations',
+                  onClick: () => history.push('/about'),
+                },
               ]}
             />
           )}
@@ -106,6 +110,10 @@ const NavBar = () => {
                 {
                   label: 'Find Low Fares',
                   onClick: () => history.push('/low-fares'),
+                },
+                {
+                  label: 'Travel Calculations',
+                  onClick: () => history.push('/about'),
                 },
                 { label: 'Logout', onClick: () => logout() },
               ]}

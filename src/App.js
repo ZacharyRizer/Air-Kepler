@@ -3,6 +3,7 @@ import { Router, Route, Switch } from 'react-router-dom';
 import { Box, ResponsiveContext } from 'grommet';
 import history from './utils/history';
 
+import About from './components/About';
 import Checkout from './components/Checkout';
 import Flights from './components/Flights';
 import FourOhFour from './components/404';
@@ -26,6 +27,7 @@ function App() {
             </header>
             <Switch>
               <Route path="/" exact component={Splash} />
+              <Route path="/about" component={About} />
               <Route path="/flights" component={Flights} />
               <Route path="/low-fares" component={LowFares} />
               <PrivateRoute path="/checkout" component={Checkout} />
@@ -46,6 +48,7 @@ function App() {
             </header>
             <Switch>
               <Route path="/" exact component={Splash} />
+              <Route path="/about" component={About} />
               <Route path="/flights" component={Flights} />
               <Route path="/low-fares" component={LowFares} />
               <PrivateRoute path="/checkout" component={Checkout} />

@@ -50,7 +50,7 @@ const Profile = (props) => {
   return (
     <>
       {size !== 'small' ? (
-        <Box direction="column" margin={{ horizontal: '15rem' }}>
+        <Box direction="column" width="63rem" margin={{ horizontal: 'auto' }}>
           <Box
             direction="row"
             justify="between"
@@ -68,7 +68,7 @@ const Profile = (props) => {
             </Box>
           </Box>
           <Box direction="row" justify="between">
-            <Box id="prev_fligts" margin="small" basis="3/4">
+            <Box id="prev_fligts" margin="small" basis="3/4" overflow="auto">
               <Box border={{ size: 'small', side: 'bottom', color: 'accent' }}>
                 <Heading level={4}>Previously Booked Trips:</Heading>
               </Box>

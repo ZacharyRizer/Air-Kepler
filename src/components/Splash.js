@@ -62,17 +62,16 @@ const Splash = () => {
       )}
       {size !== 'small' ? (
         <>
-          <Box direction="row" justify="center">
-            <Text margin="small" alignSelf="center" size="large">
-              Ready for the trip of a lifetime? Book your next interplanetary
-              adventure below!
-            </Text>
-          </Box>
+          <Text margin="small" alignSelf="center" size="large">
+            Ready for the trip of a lifetime? Book your next interplanetary
+            adventure below!
+          </Text>
           <div className="splash_div">
             <Box
               justify="evenly"
               direction="column"
-              margin={{ horizontal: '10rem', top: '10rem' }}
+              margin={{ horizontal: 'auto', top: '10rem' }}
+              width="72rem"
               background={'background-back'}>
               <SearchForm />
               <Box direction="row" id="subBar" justify="between">
@@ -143,11 +142,11 @@ const Splash = () => {
               justify="evenly"
               direction="column"
               round="xsmall"
-              margin={{ horizontal: '20rem', top: '1rem' }}
+              width="55rem"
+              margin={{ horizontal: 'auto', top: 'medium' }}
               background="brand">
               <Text
                 margin="small"
-                alignSelf="center"
                 textAlign="center"
                 size="medium"
                 style={{ color: 'white' }}>
@@ -157,6 +156,24 @@ const Splash = () => {
                 are one way.
               </Text>
             </Box>
+            <Link to="/about" style={{ textDecoration: 'none' }}>
+              <Box
+                className="button_hover"
+                direction="row"
+                justify="center"
+                round="xsmall"
+                width="40rem"
+                margin={{ horizontal: 'auto', top: '13rem' }}
+                background="brand">
+                <Text
+                  textAlign="center"
+                  size="medium"
+                  margin={{ vertical: 'small' }}>
+                  To learn about how the distances and travel times are
+                  estimated, click here!
+                </Text>
+              </Box>
+            </Link>
           </div>
         </>
       ) : (

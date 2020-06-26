@@ -97,7 +97,8 @@ const Checkout = () => {
                 direction="row"
                 justify="between"
                 align="center"
-                margin={{ horizontal: '15rem' }}
+                width="63rem"
+                margin={{ horizontal: 'auto' }}
                 border={{ size: 'small', side: 'bottom', color: 'accent' }}>
                 <Box direction="row" align="center">
                   <Heading margin="small" level={2} color={'text-strong'}>
@@ -118,7 +119,8 @@ const Checkout = () => {
                 direction="row"
                 justify="between"
                 align="center"
-                margin={{ horizontal: '15rem' }}>
+                width="63rem"
+                margin={{ horizontal: 'auto' }}>
                 <Box direction="column" fill="horizontal" margin="medium">
                   <Box
                     direction="row"
@@ -241,7 +243,8 @@ const Checkout = () => {
                 justify="center"
                 align="center"
                 elevation="large"
-                margin={{ horizontal: '15rem' }}
+                width="63rem"
+                margin={{ horizontal: 'auto' }}
                 background="accent">
                 <Box margin="medium">
                   <Button

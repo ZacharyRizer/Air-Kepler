@@ -50,17 +50,18 @@ const Flights = () => {
             direction="row"
             justify="between"
             align="center"
-            margin={{ horizontal: '15rem' }}
-            border={{ size: 'xsmall', side: 'bottom' }}>
+            width="65rem"
+            margin={{ horizontal: 'auto' }}
+            border={{ size: 'small', side: 'bottom' }}>
             <Box direction="row" align="center">
-              <Heading margin="xsmall" level={2} color={'text-strong'}>
+              <Heading margin="xsmall" level={3} color={'text-strong'}>
                 Depart:
               </Heading>
-              <Heading margin="xsmall" level={2} color={'text-strong'}>
+              <Heading margin="xsmall" level={3} color={'text-strong'}>
                 {depart}
               </Heading>
               <FormNextLink size="large" />
-              <Heading margin="xsmall" level={2} color={'text-strong'}>
+              <Heading margin="xsmall" level={3} color={'text-strong'}>
                 {arrive}
               </Heading>
             </Box>
@@ -76,7 +77,8 @@ const Flights = () => {
           </Box>
           <Tabs
             alignControls="center"
-            margin={{ horizontal: '17rem', vertical: '1rem' }}
+            width="60rem"
+            margin={{ horizontal: 'auto', vertical: 'small' }}
             onActive={(tab) => setClass(tab)}
             activeIndex={tab}>
             <Tab title="Economy Class" focusIndicator={false}>
@@ -100,21 +102,38 @@ const Flights = () => {
               />
             </Tab>
           </Tabs>
-          <Link
-            to="/low-fares"
-            style={{ textDecoration: 'none' }}
-            className="button_hover">
+          <Link to="/low-fares" style={{ textDecoration: 'none' }}>
             <Box
               className="button_hover"
               direction="row"
               justify="center"
               align="center"
-              margin={{ horizontal: '15rem' }}
+              width="60rem"
+              margin={{ horizontal: 'auto' }}
               background="accent"
               round="xsmall">
-              <Heading textAlign="center" level={3} className="button_hover">
+              <Heading textAlign="center" level={3}>
                 Are Your Dates Flexible? Browse Our Lowest Fares!
               </Heading>
+            </Box>
+          </Link>
+          <Link to="/about" style={{ textDecoration: 'none' }}>
+            <Box
+              className="button_hover"
+              direction="row"
+              justify="center"
+              align="center"
+              round="xsmall"
+              width="50rem"
+              margin={{ horizontal: 'auto', top: '5rem' }}
+              background="accent">
+              <Text
+                textAlign="center"
+                size="medium"
+                margin={{ vertical: 'small' }}>
+                To learn about how the distances and travel times are estimated,
+                click here!
+              </Text>
             </Box>
           </Link>
         </>
