@@ -111,7 +111,8 @@ const LowFares = () => {
           <Box
             direction="row"
             justify="evenly"
-            margin={{ horizontal: '15rem' }}>
+            width="63rem"
+            margin={{ horizontal: 'auto' }}>
             <Box direction="column">
               <Text
                 margin={{
@@ -184,7 +185,8 @@ const LowFares = () => {
             </Box>
           </Box>
           <Box
-            margin={{ horizontal: '15rem' }}
+            width="63rem"
+            margin={{ horizontal: 'auto' }}
             round="xsmall"
             border={{ size: 'small', side: 'horizontal', color: 'accent' }}>
             {!distances.length ? (
@@ -200,7 +202,7 @@ const LowFares = () => {
                 </Heading>
               </Box>
             ) : (
-              <Table>
+              <Table margin="auto">
                 <TableHeader>
                   <TableRow>
                     <TableCell scope="col" border="bottom">
