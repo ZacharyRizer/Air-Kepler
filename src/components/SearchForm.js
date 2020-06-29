@@ -98,7 +98,7 @@ const SearchForm = () => {
           </Box>
         </Box>
       ) : (
-        <Box justify="evenly" margin="small" direction="column">
+        <Box justify="evenly" margin="small" direction="column" flex="false">
           <Box direction="column">
             <Text margin="xsmall">Departure Planet:</Text>
             <Select

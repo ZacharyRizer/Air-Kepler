@@ -17,18 +17,19 @@ const About = () => {
               travel times and distances. We start with the barycentric (center
               of mass of the solar system) cartesian coordinates and velocities
               of your departure and arrival locations on a particular date.
-              These cartesian velocities are then converted to polar versions,
-              and circular orbital kinematics are calculated for the destination
-              planet.
             </Paragraph>
             <Paragraph textAlign="center" color={'background-front'} fill>
-              The departure planet's coordinates are used as the launch location
-              and simple circular orbital kinematic is calculated for the
-              vessel. The time is calculated by setting the vessel and
-              destination plents final location to be the same, and we solve for
-              the total distance the vessel travels. The speed of the vessel
-              (25,000 km/h for Economy, 50,000 km/h for premium) is then used to
-              calculate the total time.
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent
+              felis justo, cursus quis ante sed, scelerisque blandit massa.
+              Praesent sed enim quam. Ut faucibus malesuada nibh sit amet
+              placerat. Proin pellentesque lacus sit amet venenatis feugiat.
+              Morbi viverra non sem gravida dapibus. Nunc tristique, ligula et
+              vehicula ornare, nisi lacus finibus sem, quis egestas neque orci
+              nec nunc. Pellentesque pellentesque suscipit felis vel blandit.
+              Cras eu quam lectus. Suspendisse potenti. Nunc finibus, turpis ut
+              consectetur pharetra, libero elit accumsan nibh, ac finibus erat
+              sapien eu sem. Integer tincidunt ultrices libero sit amet
+              vulputate.
             </Paragraph>
             <Paragraph textAlign="center" color={'background-front'} fill>
               These estimations are VERY approximate, and by no means full

@@ -49,7 +49,7 @@ const Checkout = () => {
     setArrive('');
     setDate(new Date().toISOString());
     setNumPass(1);
-    setTime({});
+    setTime();
     setDistance(0);
     setPrice({});
     setFlightClass('Economy');
@@ -69,7 +69,7 @@ const Checkout = () => {
           ticket_price: price[flightClass],
           ticket_class: flightClass,
           distance: distance,
-          travel_time: time[flightClass],
+          travel_time: time,
         }),
         headers: {
           'Content-Type': 'application/json',
@@ -163,7 +163,7 @@ const Checkout = () => {
                       Total Travel Time:
                     </Text>
                     <Text margin="small" size="medium">
-                      {flightInfo.time[flightInfo.flightClass]} Days
+                      {flightInfo.time} Days
                     </Text>
                   </Box>
                   <Box
@@ -298,7 +298,7 @@ const Checkout = () => {
                   align="center"
                   margin={{ vertical: 'medium', horizontal: 'xsmall' }}>
                   <Text>Total Travel Time:</Text>
-                  <Text>{flightInfo.time[flightInfo.flightClass]} Days</Text>
+                  <Text>{flightInfo.time} Days</Text>
                 </Box>
                 <Box
                   direction="row"

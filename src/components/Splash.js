@@ -38,12 +38,11 @@ const Splash = () => {
       if (res) {
         const data = await res.json();
         const distance = (data.distance / 1000000).toFixed(2);
-        const timeEco = Math.floor(data.distance / 25000 / 24);
-        const timePrem = Math.floor(data.distance / 50000 / 24);
+        const time = Math.floor(data.distance / 25000 / 24);
         const priceEco = Math.floor((data.distance / 100) * 0.005);
         const pricePrem = Math.floor((data.distance / 100) * 0.008);
         setDistance(distance);
-        setTime({ Economy: timeEco, Premium: timePrem });
+        setTime(time);
         setPrice({ Economy: priceEco, Premium: pricePrem });
         history.push('/flights');
       }
@@ -177,7 +176,7 @@ const Splash = () => {
           </div>
         </>
       ) : (
-        <>
+        <Box direction="column" flex="false" overflow="auto">
           <Box direction="row" justify="center" background="brand">
             <Text margin="xsmall" alignSelf="center" size="xsmall">
               Ready for the trip of a lifetime? Book Now!
@@ -200,7 +199,7 @@ const Splash = () => {
               <Button primary label="Find A Flight" onClick={handleSearch} />
             </Box>
           </Box>
-        </>
+        </Box>
       )}
     </>
   );

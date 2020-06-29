@@ -86,11 +86,9 @@ const LowFares = () => {
   const selectFlight = (i) => {
     setDate(moment(dates[i]).toISOString());
     setDistance((distances[i] / 1000000).toFixed(2));
-    const timeEco = Math.floor(distances[i] / 25000 / 24);
-    const timePrem = Math.floor(distances[i] / 50000 / 24);
+    setTime(Math.floor(distances[i] / 25000 / 24));
     const priceEco = Math.floor((distances[i] / 100) * 0.005);
     const pricePrem = Math.floor((distances[i] / 100) * 0.008);
-    setTime({ Economy: timeEco, Premium: timePrem });
     setPrice({ Economy: priceEco, Premium: pricePrem });
 
     history.push('/flights');

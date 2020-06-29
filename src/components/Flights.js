@@ -85,7 +85,7 @@ const Flights = () => {
               <FlightInfo
                 flight={{
                   speed: '25,000 km/h',
-                  travelTime: `${time.Economy} Days`,
+                  travelTime: `${time} Days`,
                   distance: `${distance} Mil. km`,
                   price: `$${price.Economy}`,
                 }}
@@ -94,8 +94,8 @@ const Flights = () => {
             <Tab title="Premium Class" focusIndicator={false}>
               <FlightInfo
                 flight={{
-                  speed: '50,000 km/h',
-                  travelTime: `${time.Premium} Days`,
+                  speed: '25,000 km/h',
+                  travelTime: `${time} Days`,
                   distance: `${distance} Mil. km`,
                   price: `$${price.Premium}`,
                 }}
@@ -164,7 +164,7 @@ const Flights = () => {
               <FlightInfo
                 flight={{
                   speed: '25,000 km/h',
-                  travelTime: `${time.Economy} Days`,
+                  travelTime: `${time} Days`,
                   distance: `${distance} Mil. km`,
                   price: `$${price.Economy}`,
                 }}
@@ -173,8 +173,8 @@ const Flights = () => {
             <Tab title="Premium Class" focusIndicator={false}>
               <FlightInfo
                 flight={{
-                  speed: '50,000 km/h',
-                  travelTime: `${time.Premium} Days`,
+                  speed: '25,000 km/h',
+                  travelTime: `${time} Days`,
                   distance: `${distance} Mil. km`,
                   price: `$${price.Premium}`,
                 }}
