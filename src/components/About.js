@@ -7,34 +7,27 @@ const About = () => {
     <>
       {size !== 'small' ? (
         <div className="about_div">
-          <Box direction="column" margin="auto" width="50rem">
+          <Box direction="column" margin="auto" width="40rem">
             <Heading textAlign="center" level={3} color={'background-front'}>
               Trip Calculations
             </Heading>
             <Paragraph textAlign="center" color={'background-front'} fill>
-              Here at Air Kepler we want to make sure you can plan your voyage
-              to a T! We strive to give you accurate approxomations of your
-              travel times and distances. We start with the barycentric (center
-              of mass of the solar system) cartesian coordinates and velocities
-              of your departure and arrival locations on a particular date.
+              Currently the travel times and distance calculations are
+              rudimentary at best. The cartesian coodinates and velocities of
+              the departure and arrival locations are collected for a specific
+              departure date. These coordinates are from the reference plane of
+              the solar system's barycenter (center of mass). Then a simple
+              distance between two points caluculation is made. And then finally
+              using an average crusing speed of 25,000 km per hour the travel
+              time is aquired.
             </Paragraph>
             <Paragraph textAlign="center" color={'background-front'} fill>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent
-              felis justo, cursus quis ante sed, scelerisque blandit massa.
-              Praesent sed enim quam. Ut faucibus malesuada nibh sit amet
-              placerat. Proin pellentesque lacus sit amet venenatis feugiat.
-              Morbi viverra non sem gravida dapibus. Nunc tristique, ligula et
-              vehicula ornare, nisi lacus finibus sem, quis egestas neque orci
-              nec nunc. Pellentesque pellentesque suscipit felis vel blandit.
-              Cras eu quam lectus. Suspendisse potenti. Nunc finibus, turpis ut
-              consectetur pharetra, libero elit accumsan nibh, ac finibus erat
-              sapien eu sem. Integer tincidunt ultrices libero sit amet
-              vulputate.
-            </Paragraph>
-            <Paragraph textAlign="center" color={'background-front'} fill>
-              These estimations are VERY approximate, and by no means full
-              proof. They are just a fun way to give you some ballpark estimates
-              of your trek.
+              Obviously this is very inaccurate and naive physics. With the time
+              frame available while creating this application, the functionality
+              of the app took precedence over the physics. I do hope to dive in
+              deeper when the time presents itself and make more accurate
+              approximations utilizing orbital mechanics and calculating a
+              hohmann transfer or implementing Lambert's problem.
             </Paragraph>
           </Box>
         </div>
@@ -44,28 +37,21 @@ const About = () => {
             Trip Calculations
           </Heading>
           <Paragraph textAlign="center">
-            Here at Air Kepler we want to make sure you can plan your voyage to
-            a T! We strive to give you highly accurate approxomations of your
-            travel times and distances. We start with the barycentric (center of
-            mass of the solar system) cartesian coordinates and velocities of
-            your departure and arrival locations on a particular date. These
-            cartesian velocities are then converted to polar versions, and
-            circular orbital kinematics are calculated for the destination
-            planet.
+            Currently the travel times and distance calculations are rudimentary
+            at best. The cartesian coodinates and velocities of the departure
+            and arrival locations are collected for a specific departure date.
+            These coordinates are from the reference plane of the solar system's
+            barycenter (center of mass). Then a simple distance between two
+            points caluculation is made. And then finally using an average
+            crusing speed of 25,000 km per hour the travel time is aquired.
           </Paragraph>
           <Paragraph textAlign="center">
-            The departure planet's coordinates are used as the launch location
-            and simple circular orbital kinematic is calculated for the vessel.
-            The time is calculated by setting the vessel and destination plents
-            final location to be the same, and we solve for the total distance
-            the vessel travels. The speed of the vessel (25,000 km/h for
-            Economy, 50,000 km/h for premium) is then used to calculate the
-            total time.
-          </Paragraph>
-          <Paragraph textAlign="center">
-            These estimations are VERY approximate, and by no means full proof.
-            They are just a fun way to give you some ballpark estimates of your
-            trek.
+            Obviously this is very inaccurate and naive physics. With the time
+            frame available while creating this application, the functionality
+            of the app took precedence over the physics. I do hope to dive in
+            deeper when the time presents itself and make more accurate
+            approximations utilizing orbital mechanics and calculating a hohmann
+            transfer or implementing Lambert's problem.
           </Paragraph>
         </Box>
       )}
