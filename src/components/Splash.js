@@ -176,7 +176,7 @@ const Splash = () => {
           </div>
         </>
       ) : (
-        <Box direction="column" flex="false" overflow="auto">
+        <Box direction="column" overflow="auto">
           <Box direction="row" justify="center" background="brand">
             <Text margin="xsmall" alignSelf="center" size="xsmall">
               Ready for the trip of a lifetime? Book Now!

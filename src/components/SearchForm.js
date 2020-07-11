@@ -1,5 +1,6 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { Context } from '../Context';
+import { useAuth0 } from '../react-auth0-spa';
 import { Box, ResponsiveContext, Select, Text } from 'grommet';
 import DateInput from './DateInput';
 
@@ -13,6 +14,16 @@ const SearchForm = () => {
     setNumPass,
   } = useContext(Context);
   const size = useContext(ResponsiveContext);
+  const { user } = useAuth0();
+
+  useEffect(() => {
+    if (user && user.sub === 'auth0|5f08e3b4a1f6030019b0ab1c') {
+      console.log(user.sub);
+      setDepart('Earth');
+      setArrive('Mars');
+    }
+  }, [user]);
+
   return (
     <>
       {size !== 'small' ? (
@@ -98,7 +109,7 @@ const SearchForm = () => {
           </Box>
         </Box>
       ) : (
-        <Box justify="evenly" margin="small" direction="column" flex="false">
+        <Box justify="evenly" margin="small" direction="column">
           <Box direction="column">
             <Text margin="xsmall">Departure Planet:</Text>
             <Select
