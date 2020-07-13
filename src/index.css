@@ -9,7 +9,7 @@ body {
 
 .splash_div {
   background-image: url('./images/planetBackGround.jpg');
-  background-size: 100%;
+  background-size: auto;
   background-repeat: no-repeat;
   width: 100%;
   height: 100%;
@@ -23,9 +23,16 @@ body {
   height: 100%;
 }
 
+.footer {
+  flex-shrink: 0;
+  text-align: center;
+  background-color: #1d39c4;
+  color: white;
+}
+
 .about_div {
   background-image: url('./images/SaturnRings.jpg');
-  background-size: 100%;
+  background-size: auto;
   background-repeat: no-repeat;
   width: 100%;
   height: 100%;

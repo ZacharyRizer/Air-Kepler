@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Box, Heading, Paragraph, ResponsiveContext } from 'grommet';
+import { Box, Button, Heading, Paragraph, ResponsiveContext } from 'grommet';
 
 const About = () => {
   const size = useContext(ResponsiveContext);
@@ -8,7 +8,41 @@ const About = () => {
       {size !== 'small' ? (
         <div className="about_div">
           <Box direction="column" margin="auto" width="40rem">
-            <Heading textAlign="center" level={3} color={'background-front'}>
+            <Heading textAlign="center" level={4} color={'background-front'}>
+              Site Created By Zachary Rizer
+            </Heading>
+            <Box direction="row" justify="evenly">
+              <a href="https://github.com/ZacharyRizer">
+                <Button
+                  color={{ text: 'background-front' }}
+                  color={'background-front'}
+                  label="GitHub"
+                  margin="5px"
+                />
+              </a>
+              <a href="https://www.linkedin.com/in/zachary-rizer/">
+                <Button
+                  color={'background-front'}
+                  label="LinkedIn"
+                  margin="5px"
+                />
+              </a>
+              <a href="https://angel.co/u/zachary-rizer">
+                <Button
+                  color={'background-front'}
+                  label="Angels List"
+                  margin="5px"
+                />
+              </a>
+              <a href="http://zacharyrizer.com/">
+                <Button
+                  color={'background-front'}
+                  label="Portfolio"
+                  margin="5px"
+                />
+              </a>
+            </Box>
+            <Heading textAlign="center" level={4} color={'background-front'}>
               Trip Calculations
             </Heading>
             <Paragraph textAlign="center" color={'background-front'} fill>
@@ -33,7 +67,7 @@ const About = () => {
         </div>
       ) : (
         <Box direction="column" align="center" margin="medium">
-          <Heading textAlign="center" level={3} margin="none">
+          <Heading textAlign="center" level={4} margin="none">
             Trip Calculations
           </Heading>
           <Paragraph textAlign="center">

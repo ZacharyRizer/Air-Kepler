@@ -155,24 +155,6 @@ const Splash = () => {
                 are one way.
               </Text>
             </Box>
-            <Link to="/about" style={{ textDecoration: 'none' }}>
-              <Box
-                className="button_hover"
-                direction="row"
-                justify="center"
-                round="xsmall"
-                width="40rem"
-                margin={{ horizontal: 'auto', top: '13rem' }}
-                background="brand">
-                <Text
-                  textAlign="center"
-                  size="medium"
-                  margin={{ vertical: 'small' }}>
-                  To learn about how the distances and travel times are
-                  estimated, click here!
-                </Text>
-              </Box>
-            </Link>
           </div>
         </>
       ) : (

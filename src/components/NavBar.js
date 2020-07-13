@@ -41,11 +41,16 @@ const NavBar = () => {
             </Button>
           </Link>
           {!isAuthenticated && (
-            <Button
-              label="Login"
-              margin="5px"
-              onClick={() => loginWithRedirect({})}
-            />
+            <Box direction="row">
+              <Button
+                label="Login"
+                margin="5px"
+                onClick={() => loginWithRedirect({})}
+              />
+              <Link to={`/about`} style={{ textDecoration: 'none' }}>
+                <Button label="About" margin="5px" color="brand" />
+              </Link>
+            </Box>
           )}
           {isAuthenticated && (
             <Box direction="row">
@@ -60,6 +65,9 @@ const NavBar = () => {
                 color="brand"
                 onClick={() => logout()}
               />
+              <Link to={`/about`} style={{ textDecoration: 'none' }}>
+                <Button label="About" margin="5px" color="brand" />
+              </Link>
             </Box>
           )}
         </Box>
@@ -94,7 +102,7 @@ const NavBar = () => {
                   onClick: () => history.push('/low-fares'),
                 },
                 {
-                  label: 'Travel Calculations',
+                  label: 'About',
                   onClick: () => history.push('/about'),
                 },
               ]}
@@ -112,7 +120,7 @@ const NavBar = () => {
                   onClick: () => history.push('/low-fares'),
                 },
                 {
-                  label: 'Travel Calculations',
+                  label: 'About',
                   onClick: () => history.push('/about'),
                 },
                 { label: 'Logout', onClick: () => logout() },
