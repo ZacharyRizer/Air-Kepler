@@ -11,13 +11,13 @@ const About = () => {
             <Heading textAlign="center" level={4} color={'background-front'}>
               Site Created By Zachary Rizer
             </Heading>
-            <Box direction="row" justify="evenly">
+            <Box direction="row" justify="center">
               <a href="https://github.com/ZacharyRizer">
                 <Button
                   primary={true}
                   color={'background'}
                   label="GitHub"
-                  margin="5px"
+                  margin="small"
                 />
               </a>
               <a href="https://www.linkedin.com/in/zachary-rizer/">
@@ -25,15 +25,7 @@ const About = () => {
                   primary={true}
                   color={'background'}
                   label="LinkedIn"
-                  margin="5px"
-                />
-              </a>
-              <a href="https://angel.co/u/zachary-rizer">
-                <Button
-                  primary={true}
-                  color={'background'}
-                  label="Angels List"
-                  margin="5px"
+                  margin="small"
                 />
               </a>
               <a href="http://zacharyrizer.com/">
@@ -41,7 +33,7 @@ const About = () => {
                   primary={true}
                   color={'background'}
                   label="Portfolio"
-                  margin="5px"
+                  margin="small"
                 />
               </a>
             </Box>
@@ -79,11 +71,6 @@ const About = () => {
             </a>
             <a href="https://www.linkedin.com/in/zachary-rizer/">
               <Button color="brand" label="LinkedIn" margin="5px" />
-            </a>
-          </div>
-          <div>
-            <a href="https://angel.co/u/zachary-rizer">
-              <Button color="brand" label="AngelList" margin="5px" />
             </a>
             <a href="http://zacharyrizer.com/">
               <Button color="brand" label="Portfolio" margin="5px" />
