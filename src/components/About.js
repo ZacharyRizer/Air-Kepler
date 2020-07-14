@@ -14,29 +14,32 @@ const About = () => {
             <Box direction="row" justify="evenly">
               <a href="https://github.com/ZacharyRizer">
                 <Button
-                  color={{ text: 'background-front' }}
-                  color={'background-front'}
+                  primary={true}
+                  color={'background'}
                   label="GitHub"
                   margin="5px"
                 />
               </a>
               <a href="https://www.linkedin.com/in/zachary-rizer/">
                 <Button
-                  color={'background-front'}
+                  primary={true}
+                  color={'background'}
                   label="LinkedIn"
                   margin="5px"
                 />
               </a>
               <a href="https://angel.co/u/zachary-rizer">
                 <Button
-                  color={'background-front'}
+                  primary={true}
+                  color={'background'}
                   label="Angels List"
                   margin="5px"
                 />
               </a>
               <a href="http://zacharyrizer.com/">
                 <Button
-                  color={'background-front'}
+                  primary={true}
+                  color={'background'}
                   label="Portfolio"
                   margin="5px"
                 />
@@ -66,8 +69,30 @@ const About = () => {
           </Box>
         </div>
       ) : (
-        <Box direction="column" align="center" margin="medium">
-          <Heading textAlign="center" level={4} margin="none">
+        <Box direction="column" align="center" margin="small">
+          <Heading textAlign="center" level={4} margin="medium">
+            Created By Zachary Rizer
+          </Heading>
+          <div>
+            <a href="https://github.com/ZacharyRizer">
+              <Button color="brand" label="Github" margin="5px" />
+            </a>
+            <a href="https://www.linkedin.com/in/zachary-rizer/">
+              <Button color="brand" label="LinkedIn" margin="5px" />
+            </a>
+          </div>
+          <div>
+            <a href="https://angel.co/u/zachary-rizer">
+              <Button color="brand" label="AngelList" margin="5px" />
+            </a>
+            <a href="http://zacharyrizer.com/">
+              <Button color="brand" label="Portfolio" margin="5px" />
+            </a>
+          </div>
+          <Heading
+            textAlign="center"
+            level={4}
+            margin={{ top: 'medium', bottom: 'xsmall' }}>
             Trip Calculations
           </Heading>
           <Paragraph textAlign="center">

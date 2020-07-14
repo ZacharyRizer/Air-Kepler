@@ -18,7 +18,6 @@ const SearchForm = () => {
 
   useEffect(() => {
     if (user && user.sub === 'auth0|5f08e3b4a1f6030019b0ab1c') {
-      console.log(user.sub);
       setDepart('Earth');
       setArrive('Mars');
     }
