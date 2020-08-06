@@ -1,10 +1,10 @@
-import React, { useContext, useState } from 'react';
-import { Link, useHistory } from 'react-router-dom';
-import { Context } from '../Context';
-import { Box, Button, Image, Layer, ResponsiveContext, Text } from 'grommet';
-import { MapLocation, Schedule } from 'grommet-icons';
-import SearchForm from './SearchForm';
-import { apiBaseUrl } from '../config';
+import React, { useContext, useState } from "react";
+import { Link, useHistory } from "react-router-dom";
+import { Context } from "../Context";
+import { Box, Button, Image, Layer, ResponsiveContext, Text } from "grommet";
+import { MapLocation, Schedule } from "grommet-icons";
+import SearchForm from "./SearchForm";
+import { apiBaseUrl } from "../config";
 
 const Splash = () => {
   const { arrive, depart, date, setDistance, setTime, setPrice } = useContext(
@@ -20,7 +20,7 @@ const Splash = () => {
       setPlanetError(true);
       return;
     } else {
-      const formatDate = date.split('T')[0];
+      const formatDate = date.split("T")[0];
       const formatDepart = depart.toLowerCase();
       const formatArrive = arrive.toLowerCase();
       const body = {
@@ -30,9 +30,9 @@ const Splash = () => {
       };
 
       const res = await fetch(`${apiBaseUrl}/calculate-trip`, {
-        method: 'POST',
+        method: "POST",
         body: JSON.stringify(body),
-        headers: { 'Content-Type': 'application/json' },
+        headers: { "Content-Type": "application/json" },
       });
 
       if (res) {
@@ -44,7 +44,7 @@ const Splash = () => {
         setDistance(distance);
         setTime(time);
         setPrice({ Economy: priceEco, Premium: pricePrem });
-        history.push('/flights');
+        history.push("/flights");
       }
     }
   };
@@ -55,11 +55,12 @@ const Splash = () => {
         <Layer
           onEsc={() => setShow(false)}
           onClick={() => setShow(false)}
-          onClickOutside={() => setShow(false)}>
+          onClickOutside={() => setShow(false)}
+        >
           <Image src="/images/Planets.svg" />
         </Layer>
       )}
-      {size !== 'small' ? (
+      {size !== "small" ? (
         <>
           <Text margin="small" alignSelf="center" size="large">
             Ready for the trip of a lifetime? Book your next interplanetary
@@ -69,9 +70,10 @@ const Splash = () => {
             <Box
               justify="evenly"
               direction="column"
-              margin={{ horizontal: 'auto', top: '10rem' }}
+              margin={{ horizontal: "auto", top: "10rem" }}
               width="72rem"
-              background={'background-back'}>
+              background={"background-back"}
+            >
               <SearchForm />
               <Box direction="row" id="subBar" justify="between">
                 <Box direction="row">
@@ -79,30 +81,33 @@ const Splash = () => {
                     <Box
                       direction="row"
                       margin={{
-                        horizontal: 'large',
-                        top: 'large',
-                        bottom: 'medium',
-                      }}>
+                        horizontal: "large",
+                        top: "large",
+                        bottom: "medium",
+                      }}
+                    >
                       <MapLocation color="brand" />
-                      <Text className="button_hover" margin={{ left: 'small' }}>
+                      <Text className="button_hover" margin={{ left: "small" }}>
                         Where we fly
                       </Text>
                     </Box>
                   </Button>
                   <Button focusIndicator={false}>
-                    <Link to="/low-fares" style={{ textDecoration: 'none' }}>
+                    <Link to="/low-fares" style={{ textDecoration: "none" }}>
                       <Box
                         direction="row"
                         margin={{
-                          horizontal: 'large',
-                          top: 'large',
-                          bottom: 'medium',
-                        }}>
+                          horizontal: "large",
+                          top: "large",
+                          bottom: "medium",
+                        }}
+                      >
                         <Schedule color="brand" />
                         <Text
                           className="button_hover"
-                          margin={{ left: 'small' }}
-                          color="text">
+                          margin={{ left: "small" }}
+                          color="text"
+                        >
                           Browse Lowest Fares
                         </Text>
                       </Box>
@@ -112,15 +117,17 @@ const Splash = () => {
                     <Box
                       direction="row"
                       margin={{
-                        left: 'medium',
-                        right: 'medium',
-                        top: 'large',
-                        bottom: 'medium',
-                      }}>
+                        left: "medium",
+                        right: "medium",
+                        top: "large",
+                        bottom: "medium",
+                      }}
+                    >
                       <Text
                         alignSelf="center"
                         weight="bold"
-                        color={'status-critical'}>
+                        color={"status-critical"}
+                      >
                         Please Select a Departure and Arrival Location
                       </Text>
                     </Box>
@@ -129,10 +136,11 @@ const Splash = () => {
                 <Box
                   elevation="medium"
                   margin={{
-                    horizontal: 'large',
-                    top: 'large',
-                    bottom: 'medium',
-                  }}>
+                    horizontal: "large",
+                    top: "large",
+                    bottom: "medium",
+                  }}
+                >
                   <Button primary label="Search" onClick={handleSearch} />
                 </Box>
               </Box>
@@ -142,13 +150,15 @@ const Splash = () => {
               direction="column"
               round="xsmall"
               width="55rem"
-              margin={{ horizontal: 'auto', top: 'medium' }}
-              background="brand">
+              margin={{ horizontal: "auto", top: "medium" }}
+              background="brand"
+            >
               <Text
                 margin="small"
                 textAlign="center"
                 size="medium"
-                style={{ color: 'white' }}>
+                style={{ color: "white" }}
+              >
                 Where is the return date you ask? Due to the length of our
                 voyages, and the uncertainties of space travel, there is no way
                 for AirKepler to guarantee the return flight times. All trips
@@ -167,17 +177,18 @@ const Splash = () => {
           <Box justify="evenly" direction="column" margin="small">
             <SearchForm />
             {planetError ? (
-              <Text alignSelf="center" color={'status-critical'}>
+              <Text alignSelf="center" color={"status-critical"}>
                 Please Select Destinations
               </Text>
             ) : null}
             <Box
               elevation="medium"
               margin={{
-                horizontal: 'large',
-                top: 'large',
-                bottom: 'medium',
-              }}>
+                horizontal: "large",
+                top: "large",
+                bottom: "medium",
+              }}
+            >
               <Button primary label="Find A Flight" onClick={handleSearch} />
             </Box>
           </Box>
