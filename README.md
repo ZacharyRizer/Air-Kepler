@@ -25,9 +25,6 @@
 - Backend Repo Link:
   [GitHub](https://github.com/ZacharyRizer/kepler-backend)
 
-- Link to App - Heroku Deployed:
-  [Heroku](https://air-kelpler.herokuapp.com/)
-
 ### Technologies used
 
 - HTML5
