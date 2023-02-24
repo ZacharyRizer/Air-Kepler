@@ -1,4 +1,4 @@
-# [AirKepler <img src="/public/images/orbiting.svg" alt="icon" width="30" />](https://air-kelpler.herokuapp.com/)
+# AirKepler <img src="/public/images/orbiting.svg" alt="icon" width="30" />
 
 #### Created By
 
